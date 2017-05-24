@@ -1,0 +1,34 @@
+<h1>Hello User New</h1>
+<%= render "shared/error_messages" %>
+
+<%= form_for @user, url:{action: "create" } do |f| %>
+
+  Username:<br/> <%= f.text_field :username %><br/><br/>
+  e-mail : <br/><%= f.email_field :email, :value => "example@email.com" %><br/><br/>
+  Password : <br/><%= f.password_field :password %><br/><br/>
+  <%= f.submit "Enviar" %>
+<% end %>
+
+
+<h2>Lista de uarios</h2>
+  <table>
+    <tr>
+      <th>Numero</th>
+      <th>usuario</th>
+      <th>Update</th>
+    </tr>
+      <% @user = User.all %>
+        <% @user.each_with_index do |user, index| %></td>
+          <tr>
+            <td><%= index +1 %></td>
+            <td><%= user.username %></td>
+            <td><%= link_to "editar", edit_user_path(index +1) %></td>
+          </tr>
+        <% end %>
+  </table>
+    
+
+
+
+  
+    

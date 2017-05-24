@@ -1,0 +1,9 @@
+<h1>Hello User New</h1>
+<%= render "shared/error_messages" %>
+<%= form_for @user, url:{action: "update" } do |f| %>
+
+  Username:<br/> <%= f.text_field :username %><br/><br/>
+  e-mail : <br/><%= f.email_field :email %><br/><br/>
+  Password : <br/><%= f.password_field :password %><br/><br/>
+  <%= f.submit "Enviar" %>
+<% end %>
